@@ -53,3 +53,17 @@ The portfolio was built on Twitter's <a href="http://getbootstrap.com/">Bootstra
 
 * <a href="http://getbootstrap.com/css/">Bootstrap's CSS Classes</a>
 * <a href="http://getbootstrap.com/components/">Bootstrap's Components</a>
+
+the following optizimations were made
+
+all pictures are "slim"now
+
+index.html the script code is at the end now
+index.html the style is inside at the beginning now
+index.hmtl the google style was deleted. 
+
+jsmain. js
+the changeslize function was changed, to make sure that the layout is running at the end of process and not in an endless if statement.
+changed the update position function as this a was bottleneck 
+i tried to minize all the arrays, to make it faster 
+

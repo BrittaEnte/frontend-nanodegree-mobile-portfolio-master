@@ -1,146 +1,11 @@
-/*
-Welcome to the 60fps project! Your goal is to make Cam's Pizzeria website run
-jank-free at 60 frames per second.
-
-There are two major issues in this code that lead to sub-60fps performance. Can
-you spot and fix both?
-
-
-Built into the code, you'll find a few instances of the User Timing API
-(window.performance), which will be console.log()ing frame rate data into the
-browser console. To learn more about User Timing API, check out:
-http://www.html5rocks.com/en/tutorials/webperformance/usertiming/
-
-Creator:
-Cameron Pittman, Udacity Course Developer
-cameron *at* udacity *dot* com
-*/
-
-// As you may have realized, this website randomly generates pizzas.
-// Here are arrays of all possible pizza ingredients.
+// Here are arrays of all possible pizza ingredients. i tried to page the page faster when i put the code together. to minimize all 
 var pizzaIngredients = {};
-pizzaIngredients.meats = [
-  "Pepperoni",
-  "Sausage",
-  "Fennel Sausage",
-  "Spicy Sausage",
-  "Chicken",
-  "BBQ Chicken",
-  "Chorizo",
-  "Chicken Andouille",
-  "Salami",
-  "Tofu",
-  "Bacon",
-  "Canadian Bacon",
-  "Proscuitto",
-  "Italian Sausage",
-  "Ground Beef",
-  "Anchovies",
-  "Turkey",
-  "Ham",
-  "Venison",
-  "Lamb",
-  "Duck",
-  "Soylent Green",
-  "Carne Asada",
-  "Soppressata Picante",
-  "Coppa",
-  "Pancetta",
-  "Bresola",
-  "Lox",
-  "Guanciale",
-  "Chili",
-  "Beef Jerky",
-  "Pastrami",
-  "Kielbasa",
-  "Scallops",
-  "Filet Mignon"
-];
-pizzaIngredients.nonMeats = [
-  "White Onions",
-  "Red Onions",
-  "Sauteed Onions",
-  "Green Peppers",
-  "Red Peppers",
-  "Banana Peppers",
-  "Ghost Peppers",
-  "Habanero Peppers",
-  "Jalapeno Peppers",
-  "Stuffed Peppers",
-  "Spinach",
-  "Tomatoes",
-  "Pineapple",
-  "Pear Slices",
-  "Apple Slices",
-  "Mushrooms",
-  "Arugula",
-  "Basil",
-  "Fennel",
-  "Rosemary",
-  "Cilantro",
-  "Avocado",
-  "Guacamole",
-  "Salsa",
-  "Swiss Chard",
-  "Kale",
-  "Sun Dried Tomatoes",
-  "Walnuts",
-  "Artichoke",
-  "Asparagus",
-  "Caramelized Onions",
-  "Mango",
-  "Garlic",
-  "Olives",
-  "Cauliflower",
-  "Polenta",
-  "Fried Egg",
-  "Zucchini",
-  "Hummus"
-];
-pizzaIngredients.cheeses = [
-  "American Cheese",
-  "Swiss Cheese",
-  "Goat Cheese",
-  "Mozzarella Cheese",
-  "Parmesean Cheese",
-  "Velveeta Cheese",
-  "Gouda Cheese",
-  "Muenster Cheese",
-  "Applewood Cheese",
-  "Asiago Cheese",
-  "Bleu Cheese",
-  "Boursin Cheese",
-  "Brie Cheese",
-  "Cheddar Cheese",
-  "Chevre Cheese",
-  "Havarti Cheese",
-  "Jack Cheese",
-  "Pepper Jack Cheese",
-  "Gruyere Cheese",
-  "Limberger Cheese",
-  "Manchego Cheese",
-  "Marscapone Cheese",
-  "Pecorino Cheese",
-  "Provolone Cheese",
-  "Queso Cheese",
-  "Roquefort Cheese",
-  "Romano Cheese",
-  "Ricotta Cheese",
-  "Smoked Gouda"
-];
-pizzaIngredients.sauces = [
-  "Red Sauce",
-  "Marinara",
-  "BBQ Sauce",
-  "No Sauce",
-  "Hot Sauce"
-];
-pizzaIngredients.crusts = [
-  "White Crust",
-  "Whole Wheat Crust",
-  "Flatbread Crust",
-  "Stuffed Crust"
-];
+pizzaIngredients.meats = ["Pepperoni","Sausage","Fennel Sausage","Spicy Sausage","Chicken","BBQ Chicken","Chorizo","Chicken Andouille","Salami","Tofu","Bacon","Canadian Bacon","Proscuitto","Italian Sausage","Ground Beef","Anchovies","Turkey","Ham","Venison","Lamb","Duck","Soylent Green","Carne Asada","Soppressata Picante","Coppa","Pancetta","Bresola","Lox","Guanciale","Chili","Beef Jerky","Pastrami","Kielbasa","Scallops","Filet Mignon"];
+
+pizzaIngredients.nonMeats = ["White Onions","Red Onions","Sauteed Onions","Green Peppers","Red Peppers","Banana Peppers","Ghost Peppers","Habanero Peppers","Jalapeno Peppers","Stuffed Peppers","Spinach","Tomatoes","Pineapple","Pear Slices","Apple Slices","Mushrooms","Arugula","Basil","Fennel","Rosemary","Cilantro","Avocado","Guacamole","Salsa","Swiss Chard","Kale","Sun Dried Tomatoes","Walnuts","Artichoke","Asparagus","Caramelized Onions","Mango","Garlic","Olives","Cauliflower","Polenta","Fried Egg","Zucchini","Hummus"];
+pizzaIngredients.cheeses = ["American Cheese","Swiss Cheese","Goat Cheese","Mozzarella Cheese","Parmesean Cheese","Velveeta Cheese","Gouda Cheese","Muenster Cheese","Applewood Cheese","Asiago Cheese","Bleu Cheese","Boursin Cheese","Brie Cheese","Cheddar Cheese","Chevre Cheese","Havarti Cheese","Jack Cheese","Pepper Jack Cheese","Gruyere Cheese","Limberger Cheese","Manchego Cheese","Marscapone Cheese","Pecorino Cheese","Provolone Cheese","Queso Cheese","Roquefort Cheese","Romano Cheese","Ricotta Cheese","Smoked Gouda"];
+pizzaIngredients.sauces = ["Red Sauce","Marinara","BBQ Sauce","No Sauce","Hot Sauce"];
+pizzaIngredients.crusts = ["White Crust","Whole Wheat Crust","Flatbread Crust","Stuffed Crust"];
 
 // Name generator pulled from http://saturdaykid.com/usernames/generator.html
 // Capitalizes first letter of each word
@@ -421,46 +286,36 @@ var resizePizzas = function(size) {
 
   changeSliderLabel(size);
 
-   // Returns the size difference to change a pizza element from one size to another. Called by changePizzaSlices(size).
-  function determineDx (elem, size) {
-    var oldWidth = elem.offsetWidth;
-    var windowWidth = document.querySelector("#randomPizzas").offsetWidth;
+// new function for changepizzasize now layout calling each time. now with a percentage. 
 
-    var oldSize = oldWidth / windowWidth;
-
-    // new function for changepizzasize now layout calling each time. 
-    function changePizzaSizes (size) {
-      switch(size) {
-        case "1":
-          newWidth: 25;
-          break;
-        case "2":
-          newWidth: 33.33;
-          break;
-        case "3":
-          newWidth 50;
-          break; 
-        default:
-          console.log("bug in sizeSwitcher");
-      }
-
-      var randomPizzas = document.querySelectorAll(".randomPizzaContainer"):
-
-      for (var i=0; i < randomPizzas.length; i++){
-        randomPizzas[i].style.with = newWidth + "%";
-      }
-
+function changePizzaSizes(size) {
+  //newWidth is now a percentage value that will be concatenated, with a '%' symbol instead of converting it to a pixel value with determineDx.
+  switch(size) {
+      case "1":
+        newWidth = 25;
+        break;
+      case "2":
+        newWidth = 33.3;
+        break;
+      case "3":
+        newWidth = 50;
+         break;
+      default:
+        console.log("bug in sizeSwitcher");
     }
+//getElementsByClassName() is more efficient than document.querySelector()
+//removed the repetitive use of querySelectorAll in the loop
+  var randomPizzas = document.getElementsByClassName("randomPizzaContainer");
 
-    var newSize = sizeSwitcher(size);
-    var dx = (newSize - oldSize) * windowWidth;
-
-    return dx;
+//simple for loop that sets CSS width of the element.
+  for (var i = 0; i < randomPizzas.length; i++) {
+    randomPizzas[i].style.width = newWidth + '%';
   }
+}
 
+changePizzaSizes(size);
 
-
-  changePizzaSizes(size);
+  
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
@@ -500,35 +355,43 @@ function logAverageFrame(times) {   // times is the array of User Timing measure
 // The following code for sliding background pizzas was pulled from Ilya's demo found at:
 // https://www.igvita.com/slides/2012/devtools-tips-and-tricks/jank-demo.html
 
-// Moves the sliding background pizzas based on scroll position
+// Moves the sliding background pizzas based on scroll position. dev told me that here was the problem. 
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
 
   var items = document.querySelectorAll('.mover');
-  for (var i = 0; i < items.length; i++) {
-    var phase = Math.sin((document.body.scrollTop / 1250) + (i % 5));
-    items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
-  }
+    // i calculated scroll just one time
+    var scrollPosition = document.body.scrollTop / 1250;
+    var phaseMap = new Map();
 
-  // User Timing API to the rescue again. Seriously, it's worth learning.
-  // Super easy to create custom metrics.
-  window.performance.mark("mark_end_frame");
-  window.performance.measure("measure_frame_duration", "mark_start_frame", "mark_end_frame");
-  if (frame % 10 === 0) {
-    var timesToUpdatePosition = window.performance.getEntriesByName("measure_frame_duration");
-    logAverageFrame(timesToUpdatePosition);
-  }
+    //loop will issue values 
+    for (var k = 0; k < 5; k++) {
+        phaseMap.set(k, Math.sin(scrollPosition + (k % 5)));
+    }
+
+    //add the value to the map 
+    for (var i = 0; i < items.length; i++) {
+        var phase = phaseMap.get(i % 5);
+        items[i].style.left = items[i].basicLeft + 100 * phase + 'px';
+    }
+
+  //performance 
+  if(window.performance.mark("mark_end_frame"),window.performance.measure("measure_frame_duration","mark_start_frame","mark_end_frame"),
+    frame%10===0){var timesToUpdatePosition=window.performance.getEntriesByName("measure_frame_duration");
+    logAverageFrame(timesToUpdatePosition)}
+  
 }
+
 
 // runs updatePositions on scroll
 window.addEventListener('scroll', updatePositions);
 
-// Generates the sliding pizzas when the page loads.
+// Generates the sliding pizzas when the page loads. 
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 100; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
