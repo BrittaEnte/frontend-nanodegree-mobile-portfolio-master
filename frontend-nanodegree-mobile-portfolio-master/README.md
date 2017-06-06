@@ -65,5 +65,15 @@ index.hmtl the google style was deleted.
 jsmain. js
 the changeslize function was changed, to make sure that the layout is running at the end of process and not in an endless if statement.
 changed the update position function as this a was bottleneck 
-i tried to minize all the arrays, to make it faster 
+i tried to minize all the arrays, to make it faster.
+
+how to run the website
+clone the repro or download the repro.
+if downloaded you must unzip the files. for example you can use winrar.
+make sure you are connected to the web
+double click on the file called index.html
+you can open the file with all common browser like google chrome, opera or firefox.
+you also can create you own localhost.
+
+
 
